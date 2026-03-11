@@ -1,0 +1,110 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  role: string;
+  city?: string;
+  initials: string;
+  color?: string;
+  featured?: boolean;
+}
+
+const { quote, author, role, city, initials, color = '#3d6b8a', featured = false } = Astro.props;
+---
+
+<div class:list={['testimonial-card', { 'testimonial-card--featured': featured }]}>
+  <div class="testimonial-avatar" style={`background-color: ${color};`}>
+    <span>{initials}</span>
+  </div>
+  <div class="testimonial-content">
+    <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+    </svg>
+    <blockquote class="testimonial-quote">
+      {quote}
+    </blockquote>
+    <footer class="testimonial-footer">
+      <span class="testimonial-author">{author}</span>
+      <span class="testimonial-role">
+        {role}{city ? ` · ${city}` : ''}
+      </span>
+    </footer>
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    background-color: var(--color-card);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.25s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .testimonial-card--featured {
+    background-color: white;
+    box-shadow: 0 4px 32px rgba(15, 32, 51, 0.08);
+  }
+
+  .testimonial-avatar {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonial-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .testimonial-quote-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-muted);
+    opacity: 0.5;
+  }
+
+  .testimonial-quote {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--color-navy);
+    font-style: italic;
+    flex: 1;
+  }
+
+  .testimonial-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(15, 32, 51, 0.08);
+  }
+
+  .testimonial-author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .testimonial-role {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    letter-spacing: 0.02em;
+  }
+</style>

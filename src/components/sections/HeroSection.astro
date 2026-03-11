@@ -1,0 +1,506 @@
+---
+const pillAreas = ['Laboral', 'Familiar', 'Corporativo'];
+---
+
+<section class="hero-section" id="inicio" aria-label="Inicio">
+  <div class="hero-inner">
+    <!-- Left Panel: White -->
+    <div class="hero-left">
+      <!-- Logo mark -->
+      <div class="hero-logomark animate-fade-in">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3L3 9v2h18V9L12 3z"/>
+          <path d="M5 11v8"/>
+          <path d="M19 11v8"/>
+          <path d="M3 19h18"/>
+          <path d="M7 11v8"/>
+          <path d="M17 11v8"/>
+          <path d="M10 11v8"/>
+          <path d="M14 11v8"/>
+          <path d="M2 21h20"/>
+        </svg>
+        <span>VEREDICTA</span>
+      </div>
+
+      <div class="hero-left-content">
+        <!-- Description -->
+        <p class="hero-description animate-fade-up delay-100">
+          Asesoría y representación legal clara, estratégica y confiable para personas y empresas que necesitan respaldo profesional en sus decisiones más importantes.
+        </p>
+
+        <!-- Practice area pills -->
+        <div class="hero-pills animate-fade-up delay-200" aria-label="Áreas de práctica">
+          {pillAreas.map(area => (
+            <span class="hero-pill">{area}</span>
+          ))}
+          <span class="hero-pill hero-pill--more">+3</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="hero-left-cta animate-fade-up delay-300">
+          <a href="#servicios" class="hero-view-all">
+            VER TODAS LAS ÁREAS
+            <span class="hero-view-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Trust line bottom-left -->
+      <div class="hero-trust animate-fade-up delay-400">
+        <div class="hero-trust-dots" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span>Atención personalizada · Respuesta ágil · Criterio estratégico</span>
+      </div>
+    </div>
+
+    <!-- Right Panel: Dark -->
+    <div class="hero-right noise-bg" aria-hidden="false">
+      <!-- Background image -->
+      <img
+        src="https://images.pexels.com/photos/4427431/pexels-photo-4427431.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        alt=""
+        class="hero-bg-img"
+        loading="eager"
+        fetchpriority="high"
+        aria-hidden="true"
+      />
+      <!-- Dark overlay for readability -->
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+      <!-- Abstract decorative scales -->
+      <div class="hero-deco" aria-hidden="true">
+        <svg class="hero-deco-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="90" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="65" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="40" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="10" y1="100" x2="190" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <!-- Top bar on right panel -->
+      <div class="hero-right-top">
+        <div class="hero-right-tag">
+          <span class="hero-right-tag-dot"></span>
+          Firma jurídica
+        </div>
+        <a href="#contacto" class="hero-schedule-btn">
+          AGENDAR
+          <span class="hero-schedule-arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Main headline bottom-left -->
+      <div class="hero-headline-block">
+        <h1 class="hero-headline animate-fade-up">
+          Tu brújula
+          <br />
+          en derecho.
+        </h1>
+        <p class="hero-subheadline animate-fade-up delay-200">
+          Defensa y asesoría legal estratégica para personas y empresas.
+        </p>
+        <div class="hero-ctas animate-fade-up delay-300">
+          <a href="#contacto" class="hero-cta-primary">Agendar consulta</a>
+          <a
+            href="https://wa.me/5200000000000?text=Hola%2C%20quiero%20recibir%20orientaci%C3%B3n%20legal%20sobre%20mi%20caso%20y%20conocer%20c%C3%B3mo%20agendar%20una%20consulta%20con%20Veredicta."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero-cta-secondary"
+          >
+            WhatsApp ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll down button bottom-right -->
+      <button
+        class="hero-scroll-btn"
+        onclick="document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })"
+        aria-label="Desplazar hacia abajo"
+      >
+        <span aria-hidden="true">↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    min-height: 100svh;
+    padding: 4.5rem 1rem 1rem;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: calc(100svh - 5.5rem);
+  }
+
+  @media (min-width: 900px) {
+    .hero-inner {
+      flex-direction: row;
+    }
+  }
+
+  /* Left Panel */
+  .hero-left {
+    flex: 0 0 38%;
+    background-color: var(--color-surface);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 900px) {
+    .hero-left {
+      padding: 2.5rem;
+    }
+  }
+
+  .hero-logomark {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+
+  .hero-logomark svg {
+    color: var(--color-navy);
+  }
+
+  .hero-left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--color-navy);
+    opacity: 0.7;
+    max-width: 340px;
+  }
+
+  /* Pills */
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border: 1.5px solid rgba(15, 32, 51, 0.2);
+    border-radius: 9999px;
+    color: var(--color-navy);
+    opacity: 0.65;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+  }
+
+  .hero-pill:hover {
+    opacity: 1;
+    background-color: rgba(15, 32, 51, 0.05);
+  }
+
+  .hero-pill--more {
+    background-color: var(--color-navy);
+    color: white;
+    border-color: var(--color-navy);
+    opacity: 1;
+  }
+
+  .hero-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-view-all:hover {
+    opacity: 0.65;
+  }
+
+  .hero-view-arrow {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease;
+  }
+
+  .hero-view-all:hover .hero-view-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* Trust line */
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.65rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-trust-dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .hero-trust-dots span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-muted);
+    opacity: 0.5;
+  }
+
+  .hero-trust-dots span:first-child { opacity: 1; }
+  .hero-trust-dots span:nth-child(2) { opacity: 0.6; }
+
+  /* Right Panel */
+  .hero-right {
+    flex: 1;
+    background: linear-gradient(145deg, #0f2033 0%, #1a3a52 40%, #0d1e30 100%);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+  }
+
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: inherit;
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10, 18, 28, 0.82) 0%,
+      rgba(10, 18, 28, 0.45) 50%,
+      rgba(10, 18, 28, 0.25) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-deco {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 340px;
+    height: 340px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero-deco-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Right top bar */
+  .hero-right-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-right-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .hero-right-tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hero-schedule-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hero-schedule-btn:hover {
+    color: white;
+  }
+
+  .hero-schedule-arrow {
+    font-size: 0.85rem;
+  }
+
+  /* Headline block */
+  .hero-headline-block {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 3rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: white;
+  }
+
+  .hero-subheadline {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  /* CTAs on right panel */
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.5rem;
+    border-radius: 9999px;
+    background-color: white;
+    color: var(--color-navy);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-cta-primary:hover {
+    background-color: rgba(255, 255, 255, 0.88);
+    transform: translateY(-1px);
+  }
+
+  .hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.25rem;
+    border-radius: 9999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-cta-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.65);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* Scroll down button */
+  .hero-scroll-btn {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    animation: float 2.5s ease-in-out infinite;
+  }
+
+  .hero-scroll-btn:hover {
+    border-color: rgba(255, 255, 255, 0.65);
+    color: white;
+    transform: translateY(3px);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+</style>

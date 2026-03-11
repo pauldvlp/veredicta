@@ -1,0 +1,296 @@
+---
+import { testimonials } from '../../data/testimonials';
+import TestimonialCard from '../ui/TestimonialCard.astro';
+---
+
+<section class="testimonials-section" id="testimonios" aria-labelledby="testimonials-heading">
+  <div class="testimonials-inner">
+
+    <!-- Header -->
+    <div class="testimonials-header reveal">
+      <div class="testimonials-label-group">
+        <span class="section-label">Historias de clientes</span>
+        <div class="section-divider" style="width: 2.5rem;"></div>
+      </div>
+      <a href="#contacto" class="testimonials-view-all">
+        CONTACTAR
+        <span class="testimonials-view-arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- Main testimonial: featured (first) -->
+    <div class="testimonials-featured reveal delay-100">
+      <div class="testimonials-featured-avatar" style={`background-color: ${testimonials[0].color};`} aria-hidden="true">
+        <span>{testimonials[0].initials}</span>
+      </div>
+      <div class="testimonials-featured-content">
+        <svg class="testimonials-quote-mark" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+          <path d="M12 34c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5-5-2.24-5-5zm0-18c0-6.08 4.94-11.02 11-11h.02l-2 4.02C17.18 9.64 14 13.48 14 18v1.5H8V16zM26 34c0-2.76 2.24-5 5-5s5 2.24 5 5-2.24 5-5 5-5-2.24-5-5zm0-18c0-6.08 4.94-11.02 11-11h.02l-2 4.02C31.18 9.64 28 13.48 28 18v1.5H22V16z"/>
+        </svg>
+        <blockquote class="testimonials-featured-quote">
+          "{testimonials[0].quote}"
+        </blockquote>
+        <footer class="testimonials-featured-footer">
+          <span class="testimonials-featured-name">{testimonials[0].author}</span>
+          <span class="testimonials-featured-role">{testimonials[0].role}{testimonials[0].city ? ` · ${testimonials[0].city}` : ''}</span>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Other testimonials grid -->
+    <div class="testimonials-grid stagger-children">
+      {testimonials.slice(1).map((t, i) => (
+        <div class="reveal">
+          <TestimonialCard
+            quote={t.quote}
+            author={t.author}
+            role={t.role}
+            city={t.city}
+            initials={t.initials}
+            color={t.color}
+          />
+        </div>
+      ))}
+
+      <!-- CTA card -->
+      <div class="testimonials-cta-card reveal delay-300">
+        <div class="testimonials-cta-card-inner">
+          <p class="testimonials-cta-text">
+            Únete a los clientes que han confiado en Veredicta para resolver sus asuntos legales.
+          </p>
+          <a href="#contacto" class="testimonials-cta-link">
+            COMENZAR AHORA
+            <span class="testimonials-cta-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: 1rem 1rem;
+  }
+
+  .testimonials-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--color-surface);
+    border-radius: 1.75rem;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .testimonials-inner {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Header */
+  .testimonials-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .testimonials-label-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .testimonials-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    text-decoration: none;
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+  }
+
+  .testimonials-view-all:hover {
+    opacity: 1;
+  }
+
+  .testimonials-view-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+  }
+
+  .testimonials-view-all:hover .testimonials-view-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* Featured testimonial */
+  .testimonials-featured {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .testimonials-featured {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2.5rem;
+    }
+  }
+
+  .testimonials-featured-avatar {
+    flex-shrink: 0;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonials-featured-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .testimonials-quote-mark {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-muted);
+    opacity: 0.3;
+  }
+
+  .testimonials-featured-quote {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.65;
+    color: var(--color-navy);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .testimonials-featured-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(15, 32, 51, 0.07);
+  }
+
+  .testimonials-featured-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .testimonials-featured-role {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  /* Grid */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* CTA card */
+  .testimonials-cta-card {
+    height: 100%;
+  }
+
+  .testimonials-cta-card-inner {
+    height: 100%;
+    min-height: 200px;
+    border-radius: 1.5rem;
+    background-color: var(--color-navy);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transition: background-color 0.25s ease;
+  }
+
+  .testimonials-cta-card-inner:hover {
+    background-color: var(--color-navy-light);
+  }
+
+  .testimonials-cta-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+  }
+
+  .testimonials-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .testimonials-cta-link:hover {
+    opacity: 0.75;
+  }
+
+  .testimonials-cta-arrow {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .testimonials-cta-link:hover .testimonials-cta-arrow {
+    transform: translate(2px, -2px);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+</style>

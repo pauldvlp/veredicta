@@ -1,0 +1,300 @@
+---
+import { practiceAreas } from '../../data/practice-areas';
+import PracticeAreaItem from '../ui/PracticeAreaItem.astro';
+
+const extraTags = ['Arbitraje', 'Inmobiliario', 'Penal'];
+---
+
+<section class="practice-section" id="servicios" aria-labelledby="practice-heading">
+  <div class="practice-inner noise-bg">
+
+    <!-- Header -->
+    <div class="practice-header">
+      <div class="practice-label-group">
+        <span class="section-label" style="color: rgba(255,255,255,0.4);">Nuestros servicios</span>
+        <div style="height:1px; width:2.5rem; background: rgba(255,255,255,0.15); margin-top: 0.5rem;"></div>
+      </div>
+      <p class="practice-header-text">
+        Áreas de práctica diseñadas para atender las necesidades legales más relevantes de personas y empresas.
+      </p>
+    </div>
+
+    <!-- Main content: list + visual -->
+    <div class="practice-content">
+      <!-- Left: numbered list -->
+      <div class="practice-list" id="practice-list">
+        {practiceAreas.map((area, i) => (
+          <PracticeAreaItem
+            number={area.number}
+            name={area.name}
+            description={area.description}
+            isFirst={i === 0}
+            index={i}
+          />
+        ))}
+      </div>
+
+      <!-- Right: visual panel -->
+      <div class="practice-visual" aria-hidden="true">
+        <div class="practice-visual-inner" id="practice-visual">
+          {practiceAreas.map((area, i) => (
+            <div
+              class:list={['practice-visual-item', { 'practice-visual-item--active': i === 0 }]}
+              data-visual-index={i}
+            >
+              <div class="practice-visual-bg" style={`background: linear-gradient(145deg, hsl(${200 + i * 15}, 40%, 18%) 0%, hsl(${210 + i * 10}, 45%, 12%) 100%);`}></div>
+              <div class="practice-visual-icon">{area.icon}</div>
+              <div class="practice-visual-label">
+                <span class="practice-visual-number">{area.number}</span>
+                <span class="practice-visual-name">{area.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: extra tags + CTA -->
+    <div class="practice-footer">
+      <div class="practice-extra-tags">
+        {extraTags.map(tag => (
+          <span class="practice-extra-tag">{tag}</span>
+        ))}
+      </div>
+      <a href="#contacto" class="practice-cta">
+        <span>SOLICITAR EVALUACIÓN</span>
+        <span class="practice-cta-arrow-circle">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.practice-area-item');
+  const visuals = document.querySelectorAll<HTMLElement>('.practice-visual-item');
+
+  function activate(index: number) {
+    items.forEach((item, i) => {
+      if (i === index) {
+        item.setAttribute('data-active', 'true');
+      } else {
+        item.removeAttribute('data-active');
+      }
+    });
+    visuals.forEach((visual, i) => {
+      if (i === index) {
+        visual.classList.add('practice-visual-item--active');
+      } else {
+        visual.classList.remove('practice-visual-item--active');
+      }
+    });
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => activate(i));
+    item.addEventListener('mouseenter', () => activate(i));
+  });
+</script>
+
+<style>
+  .practice-section {
+    padding: 0 1rem 1rem;
+  }
+
+  .practice-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--color-navy);
+    border-radius: 1.75rem;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .practice-inner {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Header */
+  .practice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .practice-label-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .practice-header-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 380px;
+    line-height: 1.65;
+    text-align: right;
+  }
+
+  @media (max-width: 640px) {
+    .practice-header-text {
+      text-align: left;
+    }
+  }
+
+  /* Content */
+  .practice-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .practice-list {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Visual panel */
+  .practice-visual {
+    flex: 0 0 260px;
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .practice-visual {
+      display: block;
+    }
+  }
+
+  .practice-visual-inner {
+    position: relative;
+    height: 380px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+
+  .practice-visual-item {
+    position: absolute;
+    inset: 0;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+
+  .practice-visual-item--active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  .practice-visual-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .practice-visual-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    opacity: 0.6;
+  }
+
+  .practice-visual-label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .practice-visual-number {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+  }
+
+  .practice-visual-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1.3;
+  }
+
+  /* Footer */
+  .practice-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .practice-extra-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .practice-extra-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .practice-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .practice-cta:hover {
+    color: white;
+  }
+
+  .practice-cta-arrow-circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .practice-cta:hover .practice-cta-arrow-circle {
+    transform: translate(2px, -2px);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+</style>

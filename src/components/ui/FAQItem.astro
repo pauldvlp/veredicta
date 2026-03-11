@@ -1,0 +1,115 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+  index: number;
+  defaultOpen?: boolean;
+}
+
+const { question, answer, index, defaultOpen = false } = Astro.props;
+const id = `faq-${index}`;
+---
+
+<details class="faq-item group" id={id} open={defaultOpen}>
+  <summary class="faq-summary">
+    <span class="faq-question">{question}</span>
+    <span class="faq-icon" aria-hidden="true">
+      <span class="icon-plus">+</span>
+      <span class="icon-minus">−</span>
+    </span>
+  </summary>
+  <div class="faq-body">
+    <p class="faq-answer">{answer}</p>
+  </div>
+</details>
+
+<style>
+  .faq-item {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    background-color: var(--color-card);
+  }
+
+  .faq-item[open] {
+    background-color: var(--color-navy);
+  }
+
+  .faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.3s ease;
+    color: var(--color-navy);
+  }
+
+  .faq-item[open] .faq-summary {
+    color: var(--color-white);
+    padding-bottom: 0.75rem;
+  }
+
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+  }
+
+  .icon-minus {
+    display: none;
+  }
+
+  .faq-item[open] .icon-plus {
+    display: none;
+  }
+
+  .faq-item[open] .icon-minus {
+    display: block;
+  }
+
+  .faq-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.3s ease;
+    padding: 0 1.5rem;
+  }
+
+  .faq-item[open] .faq-body {
+    max-height: 400px;
+    padding-bottom: 1.5rem;
+  }
+
+  .faq-answer {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  .faq-item[open] .faq-answer {
+    color: rgba(240, 244, 247, 0.75);
+  }
+</style>

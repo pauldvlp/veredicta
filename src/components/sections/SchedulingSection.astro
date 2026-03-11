@@ -1,0 +1,349 @@
+---
+---
+
+<section class="scheduling-section" id="agendar" aria-labelledby="scheduling-heading">
+  <div class="scheduling-inner noise-bg">
+    <!-- Background decorative elements -->
+    <div class="scheduling-bg" aria-hidden="true">
+      <div class="scheduling-bg-circle scheduling-bg-circle--1"></div>
+      <div class="scheduling-bg-circle scheduling-bg-circle--2"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="scheduling-content">
+      <div class="scheduling-label reveal">
+        <span class="section-label" style="color: rgba(255,255,255,0.4);">Consulta inicial</span>
+        <div style="height:1px; width:2.5rem; background:rgba(255,255,255,0.15); margin-top:0.5rem;"></div>
+      </div>
+
+      <h2 class="scheduling-heading reveal delay-100" id="scheduling-heading">
+        ¿Necesitas orientación
+        <br />
+        legal?
+      </h2>
+
+      <p class="scheduling-subtext reveal delay-200">
+        Agenda una consulta inicial con el equipo de Veredicta. Revisaremos tu situación, responderemos tus preguntas esenciales y definiremos los próximos pasos más adecuados para tu caso.
+      </p>
+
+      <div class="scheduling-features reveal delay-300">
+        <div class="scheduling-feature">
+          <span class="scheduling-feature-icon" aria-hidden="true">✓</span>
+          Presencial o virtual
+        </div>
+        <div class="scheduling-feature">
+          <span class="scheduling-feature-icon" aria-hidden="true">✓</span>
+          Confirmación inmediata
+        </div>
+        <div class="scheduling-feature">
+          <span class="scheduling-feature-icon" aria-hidden="true">✓</span>
+          Sin compromiso previo
+        </div>
+      </div>
+
+      <div class="scheduling-ctas reveal delay-400">
+        <a href="#contacto" class="scheduling-cta-primary">
+          SOLICITAR CONSULTA
+          <span class="scheduling-cta-arrow">↗</span>
+        </a>
+        <a
+          href="https://wa.me/5200000000000?text=Hola%2C%20quiero%20agendar%20una%20consulta%20con%20Veredicta."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="scheduling-cta-secondary"
+        >
+          O escribe por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Right decorative card -->
+    <div class="scheduling-card reveal-right delay-200" aria-hidden="true">
+      <div class="scheduling-card-inner">
+        <div class="scheduling-card-header">
+          <span class="scheduling-card-label">Próxima disponibilidad</span>
+          <span class="scheduling-card-status">Abierto</span>
+        </div>
+        <div class="scheduling-time-slots">
+          <div class="scheduling-slot scheduling-slot--available">
+            <span>Lun · 10:00</span>
+            <span class="slot-badge">Disponible</span>
+          </div>
+          <div class="scheduling-slot scheduling-slot--available">
+            <span>Mar · 14:30</span>
+            <span class="slot-badge">Disponible</span>
+          </div>
+          <div class="scheduling-slot scheduling-slot--busy">
+            <span>Mié · 09:00</span>
+            <span class="slot-badge slot-badge--busy">Ocupado</span>
+          </div>
+          <div class="scheduling-slot scheduling-slot--available">
+            <span>Jue · 11:00</span>
+            <span class="slot-badge">Disponible</span>
+          </div>
+          <div class="scheduling-slot scheduling-slot--available">
+            <span>Vie · 16:00</span>
+            <span class="slot-badge">Disponible</span>
+          </div>
+        </div>
+        <div class="scheduling-card-footer">
+          <span>Respuesta en menos de 24 horas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scheduling-section {
+    padding: 1rem 1rem;
+  }
+
+  .scheduling-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #0f2033 0%, #1a3a52 55%, #0d1e30 100%);
+    border-radius: 1.75rem;
+    padding: 4rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 900px) {
+    .scheduling-inner {
+      flex-direction: row;
+      align-items: center;
+      padding: 5rem 4rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .scheduling-inner {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+
+  /* Background circles */
+  .scheduling-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .scheduling-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .scheduling-bg-circle--1 {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    right: -100px;
+  }
+
+  .scheduling-bg-circle--2 {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    left: 10%;
+  }
+
+  /* Content */
+  .scheduling-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scheduling-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .scheduling-heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
+  .scheduling-subtext {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.75;
+    max-width: 440px;
+  }
+
+  .scheduling-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
+
+  .scheduling-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .scheduling-feature-icon {
+    color: #4ade80;
+    font-style: normal;
+  }
+
+  .scheduling-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .scheduling-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    background-color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .scheduling-cta-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+  }
+
+  .scheduling-cta-arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+
+  .scheduling-cta-primary:hover .scheduling-cta-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .scheduling-cta-secondary {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .scheduling-cta-secondary:hover {
+    color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Card */
+  .scheduling-card {
+    flex: 0 0 280px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scheduling-card-inner {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .scheduling-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scheduling-card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .scheduling-card-status {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+
+  .scheduling-time-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .scheduling-slot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.625rem;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .scheduling-slot--available {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+
+  .scheduling-slot--available:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .scheduling-slot--busy {
+    background-color: rgba(255, 255, 255, 0.025);
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .slot-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #4ade80;
+  }
+
+  .slot-badge--busy {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .scheduling-card-footer {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+</style>

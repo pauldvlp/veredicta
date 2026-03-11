@@ -1,0 +1,359 @@
+---
+import AdvantageCard from '../ui/AdvantageCard.astro';
+
+const advantages = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: 'Experiencia profunda',
+    description: 'Más de diez años acompañando personas y empresas en asuntos jurídicos complejos con criterio y solidez técnica.',
+    highlighted: false,
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+    title: 'Efectividad comprobada',
+    description: 'Estrategia jurídica orientada a resultados reales, con seguimiento permanente y comunicación directa en cada etapa.',
+    highlighted: true,
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>`,
+    title: 'Enfoque individual',
+    description: 'Cada caso es analizado en profundidad. No ofrecemos soluciones genéricas, sino estrategias a la medida de cada situación.',
+    highlighted: false,
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+    title: 'Precios transparentes',
+    description: 'Honorarios claros y acordados desde el inicio. Sin costos ocultos ni sorpresas. La confianza también aplica en los números.',
+    highlighted: false,
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: 'Comunicación clara',
+    description: 'Respondemos con agilidad, explicamos sin tecnicismos y mantenemos informado a cada cliente durante todo el proceso.',
+    highlighted: false,
+  },
+];
+---
+
+<section class="value-section" id="ventajas" aria-labelledby="value-heading">
+  <div class="value-inner">
+
+    <!-- Header -->
+    <div class="value-header reveal">
+      <div class="value-label-group">
+        <span class="section-label">Nuestras ventajas</span>
+        <div class="section-divider" style="width: 2.5rem;"></div>
+      </div>
+      <h2 class="value-heading" id="value-heading">
+        Por qué confiar en Veredicta
+      </h2>
+    </div>
+
+    <!-- Carousel -->
+    <div class="value-carousel-outer">
+      <button class="carousel-arrow carousel-arrow--prev" id="adv-prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="value-cards-wrapper">
+        <div class="value-cards scrollbar-hide" id="adv-track">
+          {advantages.map((adv, i) => (
+            <div class="value-card-slide">
+              <AdvantageCard
+                icon={adv.icon}
+                title={adv.title}
+                description={adv.description}
+                isHighlighted={adv.highlighted}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button class="carousel-arrow carousel-arrow--next" id="adv-next" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Process steps embedded -->
+    <div class="process-block">
+      <div class="process-header reveal">
+        <span class="section-label">Cómo trabajamos</span>
+        <div class="section-divider" style="width: 2.5rem;"></div>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal delay-100">
+          <div class="process-step-num" aria-hidden="true">01</div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Cuéntanos tu situación</h3>
+            <p class="process-step-desc">Completa el formulario o escríbenos por WhatsApp con una breve descripción de tu consulta. No es necesario enviar documentos en esta etapa.</p>
+          </div>
+        </div>
+        <div class="process-divider" aria-hidden="true"></div>
+        <div class="process-step reveal delay-200">
+          <div class="process-step-num" aria-hidden="true">02</div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Revisamos tu caso</h3>
+            <p class="process-step-desc">Analizamos la información inicial para identificar las áreas jurídicas involucradas y determinar la mejor forma de orientarte.</p>
+          </div>
+        </div>
+        <div class="process-divider" aria-hidden="true"></div>
+        <div class="process-step reveal delay-300">
+          <div class="process-step-num" aria-hidden="true">03</div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Agenda y próximos pasos</h3>
+            <p class="process-step-desc">Coordinamos una consulta para revisar tu situación con mayor detalle y definir la ruta de acción estratégica que mejor se adapte a tus objetivos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .value-section {
+    padding: 1rem 1rem;
+  }
+
+  .value-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1.75rem;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .value-inner {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  .value-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .value-label-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .value-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--color-navy);
+    letter-spacing: -0.015em;
+    max-width: 400px;
+  }
+
+  /* Carousel */
+  .value-carousel-outer {
+    position: relative;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(15, 32, 51, 0.15);
+    background: white;
+    color: var(--color-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(15, 32, 51, 0.1);
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .carousel-arrow--prev {
+    left: 0.75rem;
+  }
+
+  .carousel-arrow--next {
+    right: 0.75rem;
+  }
+
+  .carousel-arrow svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .carousel-arrow:hover {
+    background-color: var(--color-navy);
+    border-color: var(--color-navy);
+    color: white;
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .carousel-arrow:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .value-cards-wrapper {
+    overflow: hidden;
+  }
+
+  .value-cards {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .value-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .value-card-slide {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    height: 360px;
+  }
+
+  .value-card-slide .advantage-card {
+    width: 100%;
+    height: 100%;
+    flex: unset;
+  }
+
+  /* Process block */
+  .process-block {
+    background-color: var(--color-surface);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .process-block {
+      padding: 1.5rem;
+    }
+  }
+
+  .process-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  @media (min-width: 768px) {
+    .process-steps {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0;
+    }
+  }
+
+  .process-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .process-step {
+      padding: 0 1.5rem;
+    }
+
+    .process-step:first-child {
+      padding-left: 0;
+    }
+
+    .process-step:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .process-step-num {
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--color-navy);
+    opacity: 0.2;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .process-step-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    line-height: 1.3;
+  }
+
+  .process-step-desc {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .process-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(15, 32, 51, 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .process-divider {
+      width: 1px;
+      height: auto;
+      min-height: 120px;
+      align-self: stretch;
+    }
+  }
+</style>
+
+<script>
+  const track = document.getElementById('adv-track') as HTMLElement;
+  const prevBtn = document.getElementById('adv-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('adv-next') as HTMLButtonElement;
+
+  function getSlideWidth(): number {
+    const slide = track?.querySelector('.value-card-slide') as HTMLElement | null;
+    if (!slide) return 296;
+    return slide.offsetWidth + 16; // card + gap
+  }
+
+  function updateArrows() {
+    if (!track) return;
+    prevBtn.disabled = track.scrollLeft <= 4;
+    nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    track.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+  });
+
+  track?.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
+</script>

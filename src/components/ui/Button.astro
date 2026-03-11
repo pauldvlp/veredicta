@@ -1,0 +1,75 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'arrow';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+  target?: string;
+  rel?: string;
+  label?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  type = 'button',
+  target,
+  rel,
+  label,
+  ...rest
+} = Astro.props;
+
+const sizeClasses = {
+  sm: 'text-xs px-4 py-2 gap-2',
+  md: 'text-xs px-5 py-2.5 gap-3',
+  lg: 'text-sm px-7 py-3.5 gap-3',
+};
+
+const circleSize = {
+  sm: 'w-6 h-6 text-xs',
+  md: 'w-8 h-8 text-sm',
+  lg: 'w-9 h-9 text-base',
+};
+
+const baseClasses = 'inline-flex items-center font-semibold tracking-wide uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy select-none';
+
+const variantClasses = {
+  primary: `rounded-full bg-navy text-white hover:bg-navy-light ${sizeClasses[size]}`,
+  secondary: `rounded-full border border-navy text-navy bg-transparent hover:bg-navy hover:text-white ${sizeClasses[size]}`,
+  ghost: `text-navy underline underline-offset-4 hover:text-slate text-xs tracking-wide font-semibold uppercase`,
+  arrow: `group`,
+};
+
+const isArrow = variant === 'arrow';
+const Tag = href ? 'a' : 'button';
+---
+
+{isArrow ? (
+  <Tag
+    href={href}
+    class:list={['btn-arrow', className]}
+    type={!href ? type : undefined}
+    target={target}
+    rel={rel}
+    {...rest}
+  >
+    <span class="text-navy"><slot /></span>
+    <span class:list={['arrow-circle bg-navy text-white flex-shrink-0', circleSize[size]]}>
+      ↗
+    </span>
+  </Tag>
+) : (
+  <Tag
+    href={href}
+    class:list={[baseClasses, variantClasses[variant], className]}
+    type={!href ? type : undefined}
+    target={target}
+    rel={rel}
+    {...rest}
+  >
+    <slot />
+  </Tag>
+)}

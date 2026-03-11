@@ -1,0 +1,608 @@
+---
+const serviceTypes = ['Consulta', 'Revisión', 'Contratos', 'Representación', 'Cumplimiento'];
+const budgetRanges = ['Básico', 'Medio', 'Premium'];
+---
+
+<section class="contact-section" id="contacto" aria-labelledby="contact-heading">
+  <div class="contact-inner">
+
+    <!-- Left: Contact info -->
+    <div class="contact-info reveal-left">
+      <div class="contact-info-label">
+        <span class="section-label">Contacto</span>
+        <div class="section-divider" style="width: 2.5rem;"></div>
+      </div>
+
+      <h2 class="contact-info-heading" id="contact-heading">
+        Hablemos sobre tu caso.
+      </h2>
+
+      <p class="contact-info-text">
+        Contáctanos por el medio que prefieras. Te respondemos en menos de 24 horas hábiles y coordinamos una primera orientación sin compromiso.
+      </p>
+
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-detail-label">Teléfono</span>
+            <a href="tel:+525500000000" class="contact-detail-value">+504 0000 0000</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-detail-label">Correo</span>
+            <a href="mailto:contacto@veredicta.hn" class="contact-detail-value">contacto@veredicta.hn</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-detail-label">Ubicación</span>
+            <span class="contact-detail-value">Tegucigalpa, Honduras</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-detail-label">Horario</span>
+            <span class="contact-detail-value">Lunes a Viernes · 9:00 – 18:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="contact-social">
+        <a href="#" class="contact-social-link" aria-label="LinkedIn de Veredicta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="#" class="contact-social-link" aria-label="Instagram de Veredicta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form-wrapper reveal-right">
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-heading-block">
+          <h3 class="form-heading">¿Necesitas asesoría legal?</h3>
+          <p class="form-subheading">Hablemos.</p>
+        </div>
+
+        <!-- Service type selector -->
+        <div class="form-group">
+          <label class="form-label">Tipo de servicio</label>
+          <div class="form-pills" role="group" aria-label="Tipo de servicio">
+            {serviceTypes.map((s, i) => (
+              <label class="form-pill-label">
+                <input type="radio" name="service" value={s} class="sr-only" checked={i === 0} />
+                <span class="form-pill">{s}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <!-- Budget range -->
+        <div class="form-group">
+          <label class="form-label">Rango de honorarios</label>
+          <div class="form-pills" role="group" aria-label="Rango de honorarios">
+            {budgetRanges.map((b, i) => (
+              <label class="form-pill-label">
+                <input type="radio" name="budget" value={b} class="sr-only" checked={i === 0} />
+                <span class="form-pill">{b}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <!-- Name + Email -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Nombre completo *</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              class="form-input"
+              placeholder="Tu nombre"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Correo electrónico *</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              class="form-input"
+              placeholder="tu@email.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label class="form-label" for="contact-phone">Teléfono</label>
+          <input
+            type="tel"
+            id="contact-phone"
+            name="phone"
+            class="form-input"
+            placeholder="+504 0000 0000"
+            autocomplete="tel"
+          />
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label class="form-label" for="contact-message">Descripción breve de tu consulta *</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            class="form-input form-textarea"
+            placeholder="Describe brevemente tu situación o la consulta que deseas realizar..."
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Privacy -->
+        <label class="form-checkbox-label">
+          <input type="checkbox" name="privacy" class="form-checkbox" required />
+          <span class="form-checkbox-text">
+            Acepto la <a href="/privacidad" class="form-link">política de privacidad</a> y el tratamiento de mis datos para gestionar mi consulta.
+          </span>
+        </label>
+
+        <!-- Submit -->
+        <button type="submit" class="form-submit">
+          <span>ENVIAR MENSAJE</span>
+          <span class="form-submit-arrow">↗</span>
+        </button>
+
+        <!-- Legal disclaimer -->
+        <p class="form-disclaimer">
+          El envío de este formulario no constituye por sí mismo una relación abogado-cliente. Evita compartir información altamente confidencial hasta recibir confirmación formal de atención.
+        </p>
+
+        <!-- Success message -->
+        <div class="form-success" id="form-success" aria-live="polite" hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          ¡Gracias! Hemos recibido tu consulta. Te contactaremos en menos de 24 horas hábiles.
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Pill radio selection
+  document.querySelectorAll('.form-pill-label input[type="radio"]').forEach(input => {
+    input.addEventListener('change', function (this: HTMLInputElement) {
+      const group = this.closest('.form-pills');
+      group?.querySelectorAll('.form-pill').forEach(pill => pill.classList.remove('form-pill--active'));
+      (this.nextElementSibling as HTMLElement)?.classList.add('form-pill--active');
+    });
+  });
+
+  // Initialize active pills
+  document.querySelectorAll('.form-pill-label input[type="radio"]:checked').forEach(input => {
+    (input as HTMLInputElement).nextElementSibling?.classList.add('form-pill--active');
+  });
+
+  // Form submit (demo)
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMsg = document.getElementById('form-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (form.checkValidity()) {
+      form.querySelectorAll('input, textarea, button').forEach(el => ((el as HTMLInputElement).disabled = true));
+      if (successMsg) {
+        successMsg.hidden = false;
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } else {
+      form.reportValidity();
+    }
+  });
+</script>
+
+<style>
+  .contact-section {
+    padding: 1rem 1rem;
+  }
+
+  .contact-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--color-card);
+    border-radius: 1.75rem;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 900px) {
+    .contact-inner {
+      flex-direction: row;
+      gap: 4rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-inner {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Contact info */
+  .contact-info {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-info-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-info-heading {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--color-navy);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  .contact-info-text {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .contact-detail-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background-color: rgba(15, 32, 51, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-navy);
+    margin-top: 0.1rem;
+  }
+
+  .contact-detail-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-detail-value {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-navy);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-detail-value:hover {
+    color: var(--color-slate);
+  }
+
+  .contact-social {
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .contact-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-social-link:hover {
+    color: var(--color-navy);
+  }
+
+  /* Form */
+  .contact-form-wrapper {
+    flex: 1;
+  }
+
+  .contact-form {
+    background-color: white;
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .contact-form {
+      padding: 1.5rem;
+    }
+  }
+
+  .form-heading-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    line-height: 1.3;
+  }
+
+  .form-subheading {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid rgba(15, 32, 51, 0.1);
+    border-radius: 0.625rem;
+    background-color: var(--color-surface);
+    color: var(--color-navy);
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    outline: none;
+    appearance: none;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-slate);
+    background-color: white;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-muted);
+    opacity: 0.6;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* Pills */
+  .form-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .form-pill-label {
+    cursor: pointer;
+  }
+
+  .form-pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.875rem;
+    border: 1.5px solid rgba(15, 32, 51, 0.12);
+    border-radius: 9999px;
+    color: var(--color-muted);
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+
+  .form-pill:hover,
+  .form-pill--active {
+    border-color: var(--color-navy);
+    background-color: var(--color-navy);
+    color: white;
+  }
+
+  /* Checkbox */
+  .form-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    cursor: pointer;
+  }
+
+  .form-checkbox {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.15rem;
+    border: 1.5px solid rgba(15, 32, 51, 0.25);
+    border-radius: 0.25rem;
+    accent-color: var(--color-navy);
+    cursor: pointer;
+  }
+
+  .form-checkbox-text {
+    font-size: 0.775rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+
+  .form-link {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Submit */
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    background-color: var(--color-navy);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover {
+    background-color: var(--color-navy-light);
+    transform: translateY(-1px);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-submit-arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+
+  .form-submit:hover .form-submit-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* Disclaimer */
+  .form-disclaimer {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    opacity: 0.75;
+  }
+
+  /* Success */
+  .form-success {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background-color: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-navy);
+    font-weight: 500;
+  }
+
+  .form-success svg {
+    flex-shrink: 0;
+    color: #22c55e;
+  }
+
+  /* sr-only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

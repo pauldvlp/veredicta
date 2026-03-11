@@ -1,0 +1,121 @@
+---
+interface Props {
+  number: string;
+  name: string;
+  description: string;
+  isFirst?: boolean;
+  index: number;
+}
+
+const { number, name, description, isFirst = false, index } = Astro.props;
+---
+
+<div
+  class="practice-area-item"
+  data-index={index}
+  data-active={isFirst ? 'true' : undefined}
+>
+  <div class="practice-area-top">
+    <span class="practice-area-number">{number}</span>
+    <h3 class="practice-area-name">{name}</h3>
+  </div>
+  <div class="practice-area-desc">
+    <p>{description}</p>
+    <a href="#contacto" class="practice-area-cta">
+      Solicitar evaluación
+      <span class="practice-cta-arrow">↗</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .practice-area-item {
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .practice-area-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .practice-area-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .practice-area-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    order: 2;
+    transition: color 0.3s ease;
+  }
+
+  .practice-area-item[data-active] .practice-area-number {
+    color: var(--color-gold);
+  }
+
+  .practice-area-name {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.2;
+    transition: color 0.3s ease;
+    letter-spacing: -0.01em;
+    order: 1;
+  }
+
+  .practice-area-item:hover .practice-area-name,
+  .practice-area-item[data-active] .practice-area-name {
+    color: var(--color-white);
+  }
+
+  .practice-area-desc {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease,
+                padding 0.3s ease;
+  }
+
+  .practice-area-item[data-active] .practice-area-desc {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 0.75rem;
+  }
+
+  .practice-area-desc p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .practice-area-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .practice-area-cta:hover {
+    opacity: 0.75;
+  }
+
+  .practice-cta-arrow {
+    font-size: 0.85rem;
+  }
+</style>

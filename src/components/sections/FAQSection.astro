@@ -1,0 +1,179 @@
+---
+import { faqItems } from '../../data/faq';
+import FAQItem from '../ui/FAQItem.astro';
+---
+
+<section class="faq-section" id="preguntas" aria-labelledby="faq-heading">
+  <div class="faq-inner">
+
+    <!-- Header -->
+    <div class="faq-header reveal">
+      <div class="faq-header-left">
+        <span class="section-label">Preguntas frecuentes</span>
+        <div class="section-divider" style="width: 2.5rem;"></div>
+        <h2 class="faq-heading" id="faq-heading">
+          Todo lo que necesitas saber
+        </h2>
+      </div>
+      <a href="#contacto" class="faq-help-btn">
+        CENTRO DE AYUDA
+        <span class="faq-help-arrow">↗</span>
+      </a>
+    </div>
+
+    <!-- FAQ items -->
+    <div class="faq-list" role="list">
+      {faqItems.map((item, i) => (
+        <div class="reveal" style={`transition-delay: ${Math.min(i * 50, 300)}ms`} role="listitem">
+          <FAQItem
+            question={item.question}
+            answer={item.answer}
+            index={i}
+            defaultOpen={i === 0}
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="faq-bottom reveal">
+      <p class="faq-bottom-text">
+        ¿No encontraste respuesta a tu pregunta? Escríbenos directamente y te orientamos.
+      </p>
+      <a
+        href="https://wa.me/5200000000000?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20los%20servicios%20de%20Veredicta."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="faq-wa-link"
+      >
+        Preguntar por WhatsApp ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 1rem 1rem;
+  }
+
+  .faq-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 1.75rem;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .faq-inner {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  /* Header */
+  .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .faq-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .faq-heading {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--color-navy);
+    letter-spacing: -0.015em;
+    margin-top: 0.75rem;
+  }
+
+  .faq-help-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    text-decoration: none;
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .faq-help-btn:hover {
+    opacity: 1;
+  }
+
+  .faq-help-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-help-btn:hover .faq-help-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  /* List */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  /* Bottom */
+  .faq-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(15, 32, 51, 0.07);
+  }
+
+  .faq-bottom-text {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    max-width: 420px;
+    line-height: 1.5;
+  }
+
+  .faq-wa-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15, 32, 51, 0.2);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .faq-wa-link:hover {
+    border-color: var(--color-navy);
+    color: var(--color-slate);
+  }
+</style>
